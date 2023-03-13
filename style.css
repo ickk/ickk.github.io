@@ -93,11 +93,15 @@
 /* IONICONS LICENSE: https://raw.githubusercontent.com/ionic-team/ionicons/master/LICENSE */
 .theme-switch input[value=light]:after {
   mask: center / 2rem 2rem
-              no-repeat url('/icons/ionicons/md-sunny.svg');
+    no-repeat url('/icons/ionicons/md-sunny.svg');
+  -webkit-mask: center / 2rem 2rem
+    no-repeat url('/icons/ionicons/md-sunny.svg');
 }
 .theme-switch input[value=dark]:after {
   mask: center / 2rem 2rem
-              no-repeat url('/icons/ionicons/md-moon.svg');
+    no-repeat url('/icons/ionicons/md-moon.svg');
+  -webkit-mask: center / 2rem 2rem
+    no-repeat url('/icons/ionicons/md-moon.svg');
 }
 .theme-switch input:checked:after {
   background-color: var(--color-themeswitch-selected-icon);
@@ -245,6 +249,6 @@ footer > span {
   display: inline-block;
   position: relative;
   color: inherit;
-  margin-bottom: .05rem;;
+  margin-bottom: .04rem;;
   top: -.1rem;
 }

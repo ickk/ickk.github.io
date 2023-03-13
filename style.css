@@ -64,25 +64,25 @@
   --font-weight-heading: var(--dark-theme--font-weight-heading);
   --shadow-multiplier: var(--dark-theme--shadow-multiplier);
 }
-theme-switch {
+.theme-switch {
   display: block;
   position: absolute;
   right: min(0%, calc(100% - var(--min-width-page) - 2rem));
 }
-theme-switch label {
+.theme-switch label {
   display: none;
 }
-theme-switch input {
+.theme-switch input {
   display: block;
   margin: 0;
   appearance: none;
   border-radius: 1.5rem;
 }
-theme-switch input:checked {
+.theme-switch input:checked {
   background: var(--color-themeswitch-selected-background);
   box-shadow: inset 0.05rem 0.15rem var(--color-header-shadow);
 }
-theme-switch input:after {
+.theme-switch input:after {
   content: "";
   display: inline-block;
   width: 3rem;
@@ -91,15 +91,15 @@ theme-switch input:after {
   background: var(--color-themeswitch-icon);
 }
 /* IONICONS LICENSE: https://raw.githubusercontent.com/ionic-team/ionicons/master/LICENSE */
-theme-switch input[value=light]:after {
+.theme-switch input[value=light]:after {
   mask: center / 2rem 2rem
               no-repeat url('/icons/ionicons/md-sunny.svg');
 }
-theme-switch input[value=dark]:after {
+.theme-switch input[value=dark]:after {
   mask: center / 2rem 2rem
               no-repeat url('/icons/ionicons/md-moon.svg');
 }
-theme-switch input:checked:after {
+.theme-switch input:checked:after {
   background-color: var(--color-themeswitch-selected-icon);
 }
 

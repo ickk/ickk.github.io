@@ -1,0 +1,7 @@
+@font-face {
+  /*LICENSE: https://github.com/microsoft/cascadia-code/blob/main/LICENSE */
+  font-family: 'Cascadia Code';
+  font-style: normal;
+  src: url('/fonts/Cascadia Code/CascadiaCode.woff2')
+       format('woff2');
+}

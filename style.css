@@ -1,0 +1,250 @@
+@import url("/reset.css");
+@import url("/font.css");
+/* Theme light */
+:root {
+  --light-theme--color-background: hsl(240, 5%, 98%);
+  --light-theme--color-heading: hsl(0, 50%, 60%);
+  --light-theme--color-heading-border: hsl(182, 80%, 38%);
+  --light-theme--color-shadow: hsl(0, 0%, 80%);
+  --light-theme--color-paragraph: hsl(39, 20%, 3%);
+
+  --light-theme--font-weight-paragraph: 300;
+  --light-theme--font-weight-heading: 500;
+  --light-theme--shadow-multiplier: 1;
+}
+/* Theme dark */
+:root {
+  --dark-theme--color-background: hsl(240, 9%, 13%);
+  --dark-theme--color-heading: hsl(0, 79%, 72%);
+  --dark-theme--color-heading-border: hsl(182, 25%, 50%);
+  --dark-theme--color-shadow: hsl(0, 0%, 7%);
+  --dark-theme--color-paragraph: hsl(39, 80%, 97.5%);
+
+  --dark-theme--font-weight-paragraph: 100;
+  --dark-theme--font-weight-heading: 400;
+  --dark-theme--shadow-multiplier: 1.5;
+}
+/* Theme constants */
+:root {
+  --font-family: 'Cascadia Code';
+  --color-header-background: hsl(240, 9%, 20%);
+  --color-header-heading: hsl(0, 79%, 72%);
+  --color-header-heading-border: hsl(182, 25%, 50%);
+  --color-header-shadow: hsl(0, 0%, 7%);
+  --color-footer-paragraph: hsla(39, 80%, 97.5%, 60%);
+  --color-themeswitch-selected-background: hsl(240, 9%, 13%);
+  --color-themeswitch-selected-icon: hsl(240, 9%, 39%);
+  --color-themeswitch-icon: hsl(240, 9%, 60%);
+  --font-weight-header-heading: 300;
+
+  --min-width-page: 30rem;
+}
+/* Theme switching */
+:root, [data-theme=light] {
+  color-scheme: light;
+  --color-background: var(--light-theme--color-background);
+  --color-heading: var(--light-theme--color-heading);
+  --color-heading-border: var(--light-theme--color-heading-border);
+  --color-shadow: var(--light-theme--color-shadow);
+  --color-paragraph: var(--light-theme--color-paragraph);
+
+  --font-weight-paragraph: var(--light-theme--font-weight-paragraph);
+  --font-weight-heading: var(--light-theme--font-weight-heading);
+  --shadow-multiplier: var(--light-theme--shadow-multiplier);
+}
+[data-theme=dark] {
+  color-scheme: dark;
+  --color-background: var(--dark-theme--color-background);
+  --color-heading: var(--dark-theme--color-heading);
+  --color-heading-border: var(--dark-theme--color-heading-border);
+  --color-shadow: var(--dark-theme--color-shadow);
+  --color-paragraph: var(--dark-theme--color-paragraph);
+
+  --font-weight-paragraph: var(--dark-theme--font-weight-paragraph);
+  --font-weight-heading: var(--dark-theme--font-weight-heading);
+  --shadow-multiplier: var(--dark-theme--shadow-multiplier);
+}
+theme-switch {
+  display: block;
+  position: absolute;
+  right: min(0%, calc(100% - var(--min-width-page) - 2rem));
+}
+theme-switch label {
+  display: none;
+}
+theme-switch input {
+  display: block;
+  margin: 0;
+  appearance: none;
+  border-radius: 1.5rem;
+}
+theme-switch input:checked {
+  background: var(--color-themeswitch-selected-background);
+  box-shadow: inset 0.05rem 0.15rem var(--color-header-shadow);
+}
+theme-switch input:after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+
+  background: var(--color-themeswitch-icon);
+}
+/* IONICONS LICENSE: https://raw.githubusercontent.com/ionic-team/ionicons/master/LICENSE */
+theme-switch input[value=light]:after {
+  mask: center / 2rem 2rem
+              no-repeat url('/icons/ionicons/md-sunny.svg');
+}
+theme-switch input[value=dark]:after {
+  mask: center / 2rem 2rem
+              no-repeat url('/icons/ionicons/md-moon.svg');
+}
+theme-switch input:checked:after {
+  background-color: var(--color-themeswitch-selected-icon);
+}
+
+html, body {
+  height:  100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-background);
+  line-height: 1.2;
+  font-size: 1.3rem;
+  font-family: var(--font-family), monospace;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
+  min-width: var(--min-width-page);
+
+  background-color: var(--color-header-background);
+  box-shadow: 0 .2rem .2rem var(--color-header-shadow);
+}
+header h1 {
+  align-self: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  color: var(--color-header-heading);
+  font-size: clamp(4rem, 9vw, 6rem);
+  font-weight: var(--font-weight-header-heading);
+  border-top: 1px solid var(--color-header-heading-border);
+  border-bottom: 1px solid var(--color-header-heading-border);
+  text-shadow: 0.2rem 0.2rem var(--color-header-shadow);
+  box-shadow: inset 0 0.15rem var(--color-header-shadow),
+              0 0.15rem var(--color-header-shadow);
+}
+main {
+  flex: 1 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto 2rem auto;
+  padding: 0 1rem 0 1rem;
+  width: clamp(var(--min-width-page), 90vw, 70rem);
+}
+p {
+  color: var(--color-paragraph);
+  font-weight: var(--font-weight-paragraph);
+}
+p::before {
+  content: "  ";
+}
+.links {
+  padding-top: 3rem;
+  margin: 0 auto;
+  font-size: 2rem;
+  line-height: 4rem;
+}
+.links a {
+  color: var(--color-paragraph);
+}
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-weight: var(--font-weight-heading);
+}
+h1 {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  font-size: 4rem;
+  border-top: 1px solid var(--color-heading-border);
+  border-bottom: 1px solid var(--color-heading-border);
+  text-shadow: calc(var(--shadow-multiplier) * .133rem)
+               calc(var(--shadow-multiplier) * .133rem)
+               var(--color-shadow);
+  box-shadow: inset 0 calc(var(--shadow-multiplier) * .133rem) var(--color-shadow),
+              0 calc(var(--shadow-multiplier) * .133rem) var(--color-shadow);
+}
+h2 {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  font-size: 3rem;
+  border-bottom: 1px solid var(--color-heading-border);
+  text-shadow: calc(var(--shadow-multiplier) * .1rem)
+               calc(var(--shadow-multiplier) * .1rem)
+               var(--color-shadow);
+  box-shadow: 0 calc(var(--shadow-multiplier) * 0.1rem) var(--color-shadow);
+}
+h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  font-size: 2.5rem;
+  text-shadow: calc(var(--shadow-multiplier) * .083rem)
+               calc(var(--shadow-multiplier) * .083rem)
+               var(--color-shadow);
+}
+h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+
+  font-size: 1.8rem;
+  text-shadow: calc(var(--shadow-multiplier) * .06rem)
+               calc(var(--shadow-multiplier) * .06rem)
+               var(--color-shadow);
+}
+h5 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+
+  font-size: 1.6rem;
+  text-shadow: calc(var(--shadow-multiplier) * .053rem)
+               calc(var(--shadow-multiplier) * .053rem)
+               var(--color-shadow);
+}
+h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+
+  font-size: 1.4rem;
+  text-shadow: calc(var(--shadow-multiplier) * .047rem)
+               calc(var(--shadow-multiplier) * .047rem)
+               var(--color-shadow);
+}
+footer {
+  margin-top: auto;
+  padding: 0 1rem 0 1rem;
+  min-width: var(--min-width-page);
+
+  text-align: center;
+  color: var(--color-footer-paragraph);
+  font-weight: var(--dark-theme--font-weight-paragraph);
+
+  background-color: var(--color-header-background);
+  box-shadow: 0 -.2rem .2rem var(--color-header-shadow);
+}
+footer > span {
+  display: inline-block;
+  position: relative;
+  color: inherit;
+  margin-bottom: .05rem;;
+  top: -.1rem;
+}

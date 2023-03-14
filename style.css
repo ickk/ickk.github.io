@@ -120,21 +120,21 @@ body {
   font-family: var(--font-family), monospace;
 }
 header {
-  display: flex;
-  flex-direction: column;
-  padding: 0 1rem 0 1rem;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  text-align: center;
   min-width: var(--min-width-page);
 
   background-color: var(--color-header-background);
   box-shadow: 0 .2rem .2rem var(--color-header-shadow);
+
+  --header-font-height: clamp(4rem, 9vw, 6rem);
 }
 header h1 {
-  align-self: center;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  display: inline;
+  vertical-align: middle;
 
   color: var(--color-header-heading);
-  font-size: clamp(4rem, 9vw, 6rem);
+  font-size: var(--header-font-height);
   font-weight: var(--font-weight-header-heading);
   border-top: 1px solid var(--color-header-heading-border);
   border-bottom: 1px solid var(--color-header-heading-border);
@@ -142,6 +142,34 @@ header h1 {
   box-shadow: inset 0 0.15rem var(--color-header-shadow),
               0 0.15rem var(--color-header-shadow);
 }
+header .profile-picture {
+  display: inline;
+  object-fit: scale-down;
+  margin-left: calc(var(--header-font-height) * -1 - 3rem);
+  margin-right: 1rem;
+  vertical-align: middle;
+  overflow: hidden;
+
+  height: calc(var(--header-font-height) + 1rem);
+  border-radius: 50%;
+  border: 1px solid var(--color-header-shadow);
+}
+/* alternative no-html version of profile-picture */
+/* header::before {
+  content: '';
+  background: url(https://github.com/ickk.png);
+  background-size: calc(var(--header-font-height) + 1rem);
+
+  display: inline-block;
+  margin-left: calc(var(--header-font-height) * -1 - 3rem);
+  margin-right: 1rem;
+  vertical-align: middle;
+
+  height: calc(var(--header-font-height) + 1rem);
+  width: calc(var(--header-font-height) + 1rem);
+  border-radius: 50%;
+  border: 1px solid var(--color-header-shadow);
+} */
 main {
   flex: 1 0 auto;
 

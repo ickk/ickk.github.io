@@ -154,22 +154,6 @@ header .profile-picture {
   border-radius: 50%;
   border: 1px solid var(--color-header-shadow);
 }
-/* alternative no-html version of profile-picture */
-/* header::before {
-  content: '';
-  background: url(https://github.com/ickk.png);
-  background-size: calc(var(--header-font-height) + 1rem);
-
-  display: inline-block;
-  margin-left: calc(var(--header-font-height) * -1 - 3rem);
-  margin-right: 1rem;
-  vertical-align: middle;
-
-  height: calc(var(--header-font-height) + 1rem);
-  width: calc(var(--header-font-height) + 1rem);
-  border-radius: 50%;
-  border: 1px solid var(--color-header-shadow);
-} */
 main {
   flex: 1 0 auto;
 
